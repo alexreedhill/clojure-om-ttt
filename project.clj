@@ -8,4 +8,5 @@
                                   [org.clojure/clojurescript "0.0-3196"]
                                   [org.omcljs/om "0.8.8"]]}}
   :plugins [[speclj "3.2.0"]]
-  :test-paths ["spec"])
+  :source-paths ["src/clj" "src/cljs"]
+  :test-paths ["spec/clj", "spec/cljs"])
