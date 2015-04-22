@@ -29,8 +29,24 @@
 
   (it "returns the diagonals"
       (should=  [["X" "X" nil]
-                 ["X" "X" nil]]
-        (-> (fill-space empty-board 0 "X")
-            (fill-space 2 "X")
-            (fill-space 4 "X")
-            (diagonals)))))
+                 ["O" "X" nil]]
+
+        (diagonals ["X" nil "O"
+                    nil "X" nil
+                    nil nil nil])))
+
+  (it "returns all of the partitions"
+      (should= [["X" nil "O"]
+                [nil "X" nil]
+                [nil nil nil]
+
+                ["X" nil nil]
+                [nil "X" nil]
+                ["O" nil nil]
+
+                ["X" "X" nil]
+                ["O" "X" nil]]
+
+               (partitions ["X" nil "O"
+                            nil "X" nil
+                            nil nil nil]))))
