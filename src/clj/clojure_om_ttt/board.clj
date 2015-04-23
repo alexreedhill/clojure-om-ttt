@@ -1,13 +1,17 @@
-(ns clojure-om-ttt.board)
+(ns clojure-om-ttt.board
+  (:require [clojure.math.numeric-tower :as math]))
 
-(defn generate []
-  (vec (repeat 9 nil)))
+(defn generate [height]
+  (vec (repeat (* height height) nil)))
 
 (defn fill-space [board index value]
   (assoc board index value))
 
+(defn height [board]
+  (math/sqrt (count board)))
+
 (defn rows [board]
- (partition 3 board))
+  (partition (height board) board))
 
 (defn transpose [m]
   (apply mapv vector m))
@@ -16,7 +20,7 @@
   (transpose (rows board)))
 
 (defn diagonal [board]
-  [(board 0) (board 4) (board 8)])
+  (map-indexed (fn [i row] (get (vec row) i)) (rows board)))
 
 (defn reverse-rows [board]
   (->> board (rows) (map reverse) (flatten) (vec)))

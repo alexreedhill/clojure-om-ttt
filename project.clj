@@ -6,7 +6,8 @@
   :dependencies [[org.clojure/clojure "1.6.0"]]
   :profiles {:dev {:dependencies [[speclj "3.2.0"]
                                   [org.clojure/clojurescript "0.0-3196"]
-                                  [org.omcljs/om "0.8.8"]]}}
+                                  [org.omcljs/om "0.8.8"]
+                                  [org.clojure/math.numeric-tower "0.0.4"]]}}
   :plugins [[speclj "3.2.0"]]
   :source-paths ["src/clj" "src/cljs"]
   :test-paths ["spec/clj", "spec/cljs"])
