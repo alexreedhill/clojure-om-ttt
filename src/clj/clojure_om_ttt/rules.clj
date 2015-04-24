@@ -1,11 +1,9 @@
 (ns clojure-om-ttt.rules
-  (:require [clojure-om-ttt.board :as b]))
-
-(defn compact [board]
-  (filter #(not (nil? %)) board))
+  (:require [clojure-om-ttt.board :as b]
+            [clojure-om-ttt.util :as util]))
 
 (defn partition-won? [partition]
-  (and (< 0 (count (compact partition)))
+  (and (< 0 (count (util/compact partition)))
        (= 1 (count (distinct partition)))))
 
 (defn winner [board]
@@ -18,7 +16,7 @@
     (b/partitions board)))
 
 (defn cats-game? [board]
-  (= 9 (count (compact board))))
+  (= 9 (count (util/compact board))))
 
 (defn game-over? [board]
   (or
