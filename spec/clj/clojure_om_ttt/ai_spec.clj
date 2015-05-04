@@ -4,22 +4,6 @@
             [clojure-om-ttt.spec-helper :refer :all]))
 
 (describe "ai"
-  (describe "potential-moves"
-    (it "returns a vector of boards representing the next possible moves"
-        (should= [
-                  ["X" "O" "X"
-                   "O" "X" nil
-                   "O" "X" "O"]
-
-                  ["X" "O" "X"
-                   "O" nil "X"
-                   "O" "X" "O"]
-                  ]
-
-                  (potential-moves ["X" "O" "X"
-                                    "O" nil nil
-                                    "O" "X" "O"] "X"))))
-
   (describe "make move"
     (it "blocks row"
       (should= [nil nil nil
