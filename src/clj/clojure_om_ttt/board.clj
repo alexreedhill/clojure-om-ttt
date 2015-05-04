@@ -26,8 +26,7 @@
   (->> board (rows) (map reverse) (flatten) (vec)))
 
 (defn diagonals [board]
-  (vector (diagonal board)
-          (diagonal (reverse-rows board))))
+  (vector (diagonal board) (diagonal (reverse-rows board))))
 
 (defn partitions [board]
   (concat (rows board) (columns board) (diagonals board)))

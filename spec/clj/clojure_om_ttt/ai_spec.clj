@@ -27,11 +27,11 @@
                                          "X" nil "O"] ["X" "O"])))
 
     (it "wins row"
-        (should= ["O" nil nil
-                  "X" "O" nil
-                  "X" nil "O"] (make-move ["O" nil nil
-                                           "X" "O" nil
-                                           "X" nil nil] ["O" "X"])))
+      (should= ["X" nil nil
+                "X" nil nil
+                "O" "O" "O"] (make-move ["X" nil nil
+                                         "X" nil nil
+                                         "O" "O" nil] ["O" "X"])))
 
     (it "wins column"
       (should= ["X" nil nil
@@ -41,8 +41,8 @@
                                          "X" "O" nil] ["X" "O"])))
 
     (it "wins diagonal"
-      (should= ["X" nil nil
-                "X" nil nil
-                "O" "O" "O"] (make-move ["X" nil nil
-                                         "X" nil nil
-                                         "O" "O" nil] ["O" "X"])))))
+        (should= ["O" nil nil
+                  "X" "O" nil
+                  "X" nil "O"] (make-move ["O" nil nil
+                                           "X" "O" nil
+                                           "X" nil nil] ["O" "X"])))))
