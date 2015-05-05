@@ -5,7 +5,7 @@
             [clojure.core.match :refer [match]]))
 
 (declare negamax)
-(def DEPTH 4)
+(def DEPTH 5)
 
 (defn- score [board [max-token min-token] depth]
   (match [(r/winner board)]
