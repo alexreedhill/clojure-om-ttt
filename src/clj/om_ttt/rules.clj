@@ -1,6 +1,6 @@
-(ns clojure-om-ttt.rules
-  (:require [clojure-om-ttt.board :as b]
-            [clojure-om-ttt.util :refer [compact]]))
+(ns om-ttt.rules
+  (:require [om-ttt.board :as b]
+            [om-ttt.util :refer [compact]]))
 
 (defn partition-won? [partition]
   (and (< 0 (count (compact partition)))

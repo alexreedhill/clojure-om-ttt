@@ -1,4 +1,4 @@
-(ns clojure-om-ttt.board
+(ns om-ttt.board
   (:require [clojure.math.numeric-tower :as math]))
 
 (defn generate [height]

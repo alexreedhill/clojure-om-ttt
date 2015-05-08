@@ -1,4 +1,4 @@
-(ns clojure-om-ttt.spec-helper)
+(ns om-ttt.spec-helper)
 
 (def empty-board
   [nil nil nil

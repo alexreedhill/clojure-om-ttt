@@ -1,7 +1,7 @@
-(ns clojure-om-ttt.ai-spec
-  (:require [clojure-om-ttt.ai :refer :all]
+(ns om-ttt.ai-spec
+  (:require [om-ttt.ai :refer :all]
             [speclj.core :refer :all]
-            [clojure-om-ttt.spec-helper :refer :all]))
+            [om-ttt.spec-helper :refer :all]))
 
 (describe "ai"
   (describe "make move"

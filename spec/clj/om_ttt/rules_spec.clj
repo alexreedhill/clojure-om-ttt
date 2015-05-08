@@ -1,7 +1,7 @@
-(ns clojure-om-ttt.rules-spec
-  (:require [clojure-om-ttt.rules :refer :all]
+(ns om-ttt.rules-spec
+  (:require [om-ttt.rules :refer :all]
             [speclj.core :refer :all]
-            [clojure-om-ttt.spec-helper :refer :all]))
+            [om-ttt.spec-helper :refer :all]))
 
 (describe "rules"
   (describe "game-over?"

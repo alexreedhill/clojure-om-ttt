@@ -1,7 +1,7 @@
-(ns clojure-om-ttt.util-spec
-  (:require [clojure-om-ttt.util :refer :all]
+(ns om-ttt.util-spec
+  (:require [om-ttt.util :refer :all]
             [speclj.core :refer :all]
-            [clojure-om-ttt.spec-helper :refer :all]))
+            [om-ttt.spec-helper :refer :all]))
 
   (describe "util"
     (describe "compact"

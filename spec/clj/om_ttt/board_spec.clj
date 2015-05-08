@@ -1,7 +1,7 @@
-(ns clojure-om-ttt.board-spec
-  (:require [clojure-om-ttt.board :refer :all]
+(ns om-ttt.board-spec
+  (:require [om-ttt.board :refer :all]
             [speclj.core :refer :all]
-            [clojure-om-ttt.spec-helper :refer :all]))
+            [om-ttt.spec-helper :refer :all]))
 
 (describe "board"
   (context "3x3"

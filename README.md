@@ -1,1 +1,1 @@
-# clojure-om-ttt
+# om-ttt

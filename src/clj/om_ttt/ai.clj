@@ -1,7 +1,7 @@
-(ns clojure-om-ttt.ai
-  (:require [clojure-om-ttt.board :as b]
-            [clojure-om-ttt.rules :as r]
-            [clojure-om-ttt.util :refer [compact]]
+(ns om-ttt.ai
+  (:require [om-ttt.board :as b]
+            [om-ttt.rules :as r]
+            [om-ttt.util :refer [compact]]
             [clojure.core.match :refer [match]]))
 
 (declare negamax)
