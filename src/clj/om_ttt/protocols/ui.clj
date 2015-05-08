@@ -4,5 +4,5 @@
   (output [this string])
   (get-configuration [this])
   (get-move [this board])
-  (restart? [this])
+  (play-again? [this])
   (same-options? [this]))
