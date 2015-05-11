@@ -1,6 +1,7 @@
 (ns om-ttt.ai
   (:require [om-ttt.board :as b]
             [om-ttt.rules :as r]
+            [om-ttt.protocols.player :refer [Player]]
             [om-ttt.util :refer [compact]]
             [clojure.core.match :refer [match]]))
 
@@ -29,7 +30,12 @@
 
 (def negamax (memoize negamax))
 
-(defn make-move [board tokens]
-  (let [scores (score-moves board tokens DEPTH)
-        best-score (negamax board tokens DEPTH)]
-    (nth (potential-moves board (first tokens)) (.indexOf scores best-score))))
+(deftype AiPlayer [tokens]
+  Player
+  (make-move [this board]
+    (let [scores (score-moves board tokens DEPTH)
+          best-score (negamax board tokens DEPTH)]
+      (nth (potential-moves board (first tokens)) (.indexOf scores best-score)))))
+
+(defn new-ai-player [player-token opponent-token]
+  (AiPlayer. [player-token opponent-token]))
