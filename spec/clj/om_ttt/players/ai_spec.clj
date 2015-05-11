@@ -1,5 +1,5 @@
-(ns om-ttt.ai-spec
-  (:require [om-ttt.ai :refer [new-ai-player]]
+(ns om-ttt.players.ai-spec
+  (:require [om-ttt.players.ai :refer [new-ai-player]]
             [om-ttt.protocols.player :refer [make-move]]
             [speclj.core :refer :all]
             [om-ttt.spec-helper :refer :all]))

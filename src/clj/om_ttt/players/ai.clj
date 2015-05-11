@@ -1,4 +1,4 @@
-(ns om-ttt.ai
+(ns om-ttt.players.ai
   (:require [om-ttt.board :as b]
             [om-ttt.rules :as r]
             [om-ttt.protocols.player :refer [Player]]
