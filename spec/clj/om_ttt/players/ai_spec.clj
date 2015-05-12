@@ -50,14 +50,88 @@
                     "X" "O" nil
                     "X" nil "O"] (make-move ai-player-o ["O" nil nil
                                                          "X" "O" nil
-                                                         "X" nil nil]))))
+                                                         "X" nil nil])))
+
+      (it "blocks fork"
+          (should= ["X" nil nil
+                    nil "O" nil
+                    nil nil nil] (make-move ai-player-o ["X" nil nil
+                                                         nil nil nil
+                                                         nil nil nil]))))
+
     (context "4x4"
-      (it "blocks deep fork"
-        (should= ["X" "O" "O" "O"
-                  "X" "X" nil "O"
-                  "X" "X" "O" nil
-                  "O" nil nil nil] (make-move ai-player-o
-                                                     ["X" "O" "O" "O"
-                                                      "X" "X" nil "O"
-                                                      "X" "X" nil nil
-                                                      "O" nil nil nil]))))))
+      (it "blocks row"
+        (should= [nil nil nil nil
+                  "O" "O" "O" "X"
+                  "X" nil nil nil
+                  nil nil nil nil]  (make-move ai-player-x [nil nil nil nil
+                                                            "O" "O" "O" nil
+                                                            "X" nil nil nil
+                                                            nil nil nil nil])))
+
+      (it "blocks column"
+        (should= [nil "X" nil nil
+                  nil "O" nil nil
+                  "X" "O" nil nil
+                  nil "O" nil nil] (make-move ai-player-x [nil nil nil nil
+                                                           nil "O" nil nil
+                                                           "X" "O" nil nil
+                                                           nil "O" nil nil])))
+
+      (it "blocks diagonal"
+        (should= ["X" nil nil nil
+                  nil "O" nil nil
+                  "X" nil "O" nil
+                  nil nil nil "O"] (make-move ai-player-x [nil nil nil nil
+                                                           nil "O" nil nil
+                                                           "X" nil "O" nil
+                                                           nil nil nil "O"])))
+
+      (it "wins row"
+        (should= ["X" nil nil nil
+                  "X" "X" nil nil
+                  "O" "O" "O" "O"
+                  nil nil nil nil] (make-move ai-player-o ["X" nil nil nil
+                                                           "X" "X" nil nil
+                                                           nil "O" "O" "O"
+                                                           nil nil nil nil])))
+
+      (it "wins column"
+        (should= ["X" nil nil nil
+                  "X" "O" nil nil
+                  "X" "O" "O" nil
+                  "X" nil nil nil] (make-move ai-player-x [nil nil nil nil
+                                                           "X" "O" nil nil
+                                                           "X" "O" "O" nil
+                                                           "X" nil nil nil])))
+
+      (it "wins diagonal"
+          (should= ["O" nil nil nil
+                    "X" "O" nil nil
+                    "X" nil "O" nil
+                    nil nil nil "O"] (make-move ai-player-o ["O" nil nil nil
+                                                             "X" "O" nil nil
+                                                             "X" nil "O" nil
+                                                             nil nil nil nil])))
+      (it "blocks fork"
+        (should-contain
+          (make-move ai-player-o
+            ["X" "O" "O" "O"
+             "X" "X" nil "O"
+             "X" "X" nil nil
+             "O" nil nil nil])
+
+             [["X" "O" "O" "O"
+               "X" "X" nil "O"
+               "X" "X" "O" nil
+               "O" nil nil nil]
+
+              ["X" "O" "O" "O"
+               "X" "X" nil "O"
+               "X" "X" nil "O"
+               "O" nil nil nil]
+
+              ["X" "O" "O" "O"
+               "X" "X" nil "O"
+               "X" "X" nil nil
+               "O" nil nil "O"]])))))

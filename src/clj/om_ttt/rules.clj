@@ -10,7 +10,7 @@
   (first (first (filter partition-won? (b/partitions board)))))
 
 (defn cats-game? [board]
-  (= 9 (count (compact board))))
+  (= (count board) (count (compact board))))
 
 (defn game-over? [board]
   (or (cats-game? board) (not (nil? (winner board)))))
