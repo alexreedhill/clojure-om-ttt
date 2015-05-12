@@ -6,7 +6,7 @@
             [clojure.core.match :refer [match]]))
 
 (declare negamax)
-(def DEPTH 5)
+(def DEPTH 7)
 
 (defn- score [board [max-token min-token] depth]
   (match [(r/winner board)]
@@ -34,8 +34,9 @@
   Player
   (make-move [this board]
     (let [scores (score-moves board tokens DEPTH)
-          best-score (negamax board tokens DEPTH)]
-      (nth (potential-moves board (first tokens)) (.indexOf scores best-score)))))
+          best-score (apply max scores)
+          best-moves (compact (map-indexed (fn [i score] (if (= score best-score) i)) scores))]
+      (nth (potential-moves board (first tokens)) (rand-nth best-moves)))))
 
 (defn new-ai-player [player-token opponent-token]
   (AiPlayer. [player-token opponent-token]))
