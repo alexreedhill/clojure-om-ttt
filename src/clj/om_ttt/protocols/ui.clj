@@ -1,8 +1,9 @@
 (ns om-ttt.protocols.ui)
 
 (defprotocol UI
-  (output [this string])
-  (get-configuration [this])
-  (get-move [this board])
-  (play-again? [this])
-  (same-options? [this]))
+  (display-message [this string])
+  (user-input [this])
+  (draw-board [this board])
+  (move [this board])
+  (restart? [this])
+  (same-config? [this]))

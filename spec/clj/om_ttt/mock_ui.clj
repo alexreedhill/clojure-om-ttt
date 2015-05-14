@@ -5,18 +5,18 @@
 
 (deftype MockUi [configuration]
   UI
-  (get-configuration [this] configuration)
+  (display-message [this string] string)
 
-  (get-move [this board] (.indexOf board nil))
+  (user-input [this] configuration)
 
-  (output [this string] string)
+  (move [this board] (.indexOf board nil))
 
-  (play-again? [this]
-    (if (= @play-again-counter 2)
+  (restart? [this]
+    (if (> @play-again-counter 1)
       false
       (do (swap! play-again-counter inc) true)))
 
-  (same-options? [this] true))
+  (same-config? [this] true))
 
 (defn new-mock-ui [configuration]
   (MockUi. configuration))
