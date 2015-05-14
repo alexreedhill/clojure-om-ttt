@@ -1,5 +1,5 @@
-(ns om-ttt.game-spec
-  (:require [om-ttt.game :refer :all]
+(ns om-ttt.game-loop-spec
+  (:require [om-ttt.game-loop :refer :all]
             [om-ttt.rules :as r]
             [om-ttt.players.ai :refer [new-ai-player]]
             [om-ttt.players.human :refer [new-human-player]]

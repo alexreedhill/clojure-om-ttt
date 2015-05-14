@@ -1,4 +1,4 @@
-(ns om-ttt.game
+(ns om-ttt.game-loop
   (:require [om-ttt.protocols.ui :as ui]
             [om-ttt.protocols.player :as player]
             [om-ttt.board :as b]
@@ -11,9 +11,9 @@
 
 (defn- game-over [players board ui]
   (do
-    (ui/output ui (str "Game over! " (r/winner board) " won. Would you like to play again?"))
-    (if (ui/play-again? ui)
-      (if (ui/same-options? ui)
+    (ui/display-message ui (str "Game over! " (r/winner board) " won. Would you like to play again?"))
+    (if (ui/restar? ui)
+      (if (ui/same-config? ui)
         (start-game (first players) (second players) ui)
         (new-game ui))
       board)))
