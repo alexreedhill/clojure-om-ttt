@@ -13,8 +13,8 @@
 (defn rows [board]
   (partition (height board) board))
 
-(defn transpose [m]
-  (apply mapv vector m))
+(defn transpose [board]
+  (apply mapv vector board))
 
 (defn columns [board]
   (transpose (rows board)))

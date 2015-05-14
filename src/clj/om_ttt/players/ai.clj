@@ -28,15 +28,17 @@
     (score board tokens depth)
     (apply max (score-moves board tokens depth))))
 
+(defn- best-moves [board tokens]
+  (let [scores (score-moves board tokens DEPTH)
+        best-score (apply max scores)]
+    (compact (map-indexed (fn [i score] (if (= score best-score) i)) scores))))
+
 (def negamax (memoize negamax))
 
 (deftype AiPlayer [tokens]
   Player
   (make-move [this board]
-    (let [scores (score-moves board tokens DEPTH)
-          best-score (apply max scores)
-          best-moves (compact (map-indexed (fn [i score] (if (= score best-score) i)) scores))]
-      (nth (potential-moves board (first tokens)) (rand-nth best-moves)))))
+    (nth (potential-moves board (first tokens)) (rand-nth (best-moves board tokens)))))
 
 (defn new-ai-player [player-token opponent-token]
   (AiPlayer. [player-token opponent-token]))
