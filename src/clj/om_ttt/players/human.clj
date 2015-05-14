@@ -6,7 +6,7 @@
 (deftype HumanPlayer [token ui]
   Player
   (make-move [this board]
-    (b/fill-space board (ui/get-move ui board) token)))
+    (b/fill-space board (ui/move ui board) token)))
 
 (defn new-human-player [player-token ui]
   (HumanPlayer. player-token ui))

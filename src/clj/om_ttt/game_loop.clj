@@ -9,26 +9,25 @@
 (defn- new-game []
   )
 
-(defn- game-over [players board ui]
+(defn- game-over [config players board ui]
   (do
     (ui/display-message ui (str "Game over! " (r/winner board) " won. Would you like to play again?"))
-    (if (ui/restar? ui)
+    (if (ui/restart? ui)
       (if (ui/same-config? ui)
-        (start-game (first players) (second players) ui)
+        (start-game config (first players) (second players) ui)
         (new-game ui))
       board)))
 
-(defn- game-loop [players board ui]
+(defn- game-loop [config players board ui]
   (if (r/game-over? board)
-    (game-over players board ui)
-    (recur (reverse players) (player/make-move (first players) board) ui)))
+    (game-over config players board ui)
+    (recur config (reverse players) (player/make-move (first players) board) ui)))
 
 (defn- order-players [config ai-player human-player]
   (if (= "ai" (config :first-player))
     [ai-player human-player]
     [human-player ai-player]))
 
-(defn start-game [ai-player human-player ui]
-  (let [config (ui/get-configuration ui)
-        players (order-players config ai-player human-player)]
-    (game-loop players (b/generate (config :board-size)) ui)))
+(defn start-game [config ai-player human-player ui]
+  (let [players (order-players config ai-player human-player)]
+    (game-loop config players (b/generate (config :board-size)) ui)))

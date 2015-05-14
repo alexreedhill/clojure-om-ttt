@@ -5,7 +5,7 @@
             [om-ttt.spec-helper :refer :all]
             [speclj.core :refer :all]))
 
-(def human-player-x (new-human-player "X" (new-mock-ui {})))
+(def human-player-x (new-human-player "X" (new-mock-ui)))
 
 (describe "human"
   (it "makes a move based on input from the ui"

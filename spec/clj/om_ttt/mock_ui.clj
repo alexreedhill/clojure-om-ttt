@@ -3,11 +3,11 @@
 
 (def play-again-counter (atom 0))
 
-(deftype MockUi [configuration]
+(deftype MockUi []
   UI
   (display-message [this string] string)
 
-  (user-input [this] configuration)
+  (user-input [this])
 
   (move [this board] (.indexOf board nil))
 
@@ -18,5 +18,5 @@
 
   (same-config? [this] true))
 
-(defn new-mock-ui [configuration]
-  (MockUi. configuration))
+(defn new-mock-ui []
+  (MockUi.))
