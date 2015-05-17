@@ -1,7 +1,7 @@
 (ns om-ttt.board-spec
   (:require [om-ttt.board :refer :all]
             [speclj.core :refer :all]
-            [om-ttt.spec-helper :refer :all]))
+            [om-ttt.spec-helper :refer [empty-board empty-4x4-board]]))
 
 (describe "board"
   (context "3x3"

@@ -1,7 +1,6 @@
 (ns om-ttt.util-spec
   (:require [om-ttt.util :refer :all]
-            [speclj.core :refer :all]
-            [om-ttt.spec-helper :refer :all]))
+            [speclj.core :refer :all]))
 
   (describe "util"
     (describe "compact"
