@@ -2,17 +2,16 @@
   (:require [om-ttt.board :as b]
             [om-ttt.rules :as r]
             [om-ttt.protocols.player :refer [Player]]
-            [om-ttt.util :refer [compact]]
-            [clojure.core.match :refer [match]]))
+            [om-ttt.util :refer [compact]]))
 
 (declare negamax)
-(def DEPTH 7)
+(def start-depth 7)
 
 (defn- score [board [max-token min-token] depth]
-  (match [(r/winner board)]
-    [max-token] depth
-    [min-token] (- depth)
-    :else 0))
+  (condp = (r/winner board)
+    max-token  depth
+    min-token (- depth)
+    0))
 
 (defn- potential-moves [board token]
   (->> board
@@ -29,7 +28,7 @@
     (apply max (score-moves board tokens depth))))
 
 (defn- best-moves [board tokens]
-  (let [scores (score-moves board tokens DEPTH)
+  (let [scores (score-moves board tokens start-depth)
         best-score (apply max scores)]
     (compact (map-indexed (fn [i score] (if (= score best-score) i)) scores))))
 
