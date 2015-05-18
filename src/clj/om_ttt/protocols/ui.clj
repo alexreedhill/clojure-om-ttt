@@ -2,8 +2,6 @@
 
 (defprotocol UI
   (display-message [this string])
-  (user-input [this])
+  (input-prompt [this string])
   (draw-board [this board])
-  (move [this board])
-  (restart? [this])
-  (same-config? [this]))
+  (move [this board]))

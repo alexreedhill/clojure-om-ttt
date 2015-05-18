@@ -12,4 +12,10 @@
    nil nil nil nil
    nil nil nil nil])
 
-(def mock-ui (new-mock-ui))
+(def mock-config
+  {:human-token "O"
+   :ai-token "X"
+   :board-size 3
+   :first-player "human"})
+
+(def mock-ui (new-mock-ui mock-config))
