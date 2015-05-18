@@ -1,12 +1,11 @@
 (ns om-ttt.console.menu
-  (:require [om-ttt.protocols.ui :as ui]))
+  (:require [om-ttt.protocols.ui :as ui]
+            [om-ttt.console.messages :as m]))
 
   (def config (atom {}))
-  (def board-size-prompt "What size board would you like to play? (3 or 4)")
-  (def first-player-prompt "Who would you like to go first? (human or ai)")
 
   (defn get-game-config [ui]
-    (ui/display-message ui board-size-prompt)
-    (swap! config assoc :board-size (ui/user-input ui))
-    (ui/display-message ui first-player-prompt)
-    (swap! config assoc :first-player (ui/user-input ui)))
+    (swap! config assoc :ai-token (ui/input-prompt ui m/ai-token-prompt))
+    (swap! config assoc :human-token (ui/input-prompt ui m/human-token-prompt))
+    (swap! config assoc :board-size (ui/input-prompt ui m/board-size-prompt))
+    (swap! config assoc :first-player (ui/input-prompt ui m/first-player-prompt)))
