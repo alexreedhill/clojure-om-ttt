@@ -10,7 +10,7 @@
 (declare create-board)
 
 (defn- start-game [board config players ui]
-  (game-loop/start-game board players ui)
+  (game-loop/start-game board players)
   (if (ui/input-prompt ui m/play-again-prompt)
     (if (ui/input-prompt ui m/same-options-prompt)
       (recur (create-board (config :board-size)) config players ui)

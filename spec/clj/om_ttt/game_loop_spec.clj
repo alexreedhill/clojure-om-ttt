@@ -14,4 +14,4 @@
 
 (describe "game"
   (it "plays several games all the way through"
-    (should= ai-token (r/winner (start-game empty-board [ai-player mock-human-player] mock-ui)))))
+    (should= ai-token (r/winner (start-game empty-board [ai-player mock-human-player])))))
