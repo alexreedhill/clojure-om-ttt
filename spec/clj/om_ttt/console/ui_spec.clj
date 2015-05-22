@@ -2,6 +2,7 @@
   (:require [om-ttt.console.ui :refer :all]
             [om-ttt.protocols.ui :refer :all]
             [om-ttt.board :as b]
+            [om-ttt.console.messages :as m]
             [om-ttt.spec-helper :refer [empty-board]]
             [speclj.core :refer :all]))
 
@@ -28,6 +29,8 @@
                "     |     |     \n"
                "     |     |     \n"
                "     |     |     \n")
-      (draw-board console-ui (b/fill-space empty-board 0 "X"))))
+      (with-out-str (draw-board console-ui (b/fill-space empty-board 0 "X")))))
 
-  (it "gets a move from a user"))
+  (it "gets a move from a user"
+    (should= (str m/player-move-prompt "\n") (with-out-str (with-in-str "0" (move console-ui empty-board))))
+    (should= 0 (with-in-str "0" (with-redefs [println (fn [_])] (move console-ui empty-board))))))

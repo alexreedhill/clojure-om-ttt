@@ -3,7 +3,6 @@
             [om-ttt.rules :as r]
             [om-ttt.players.ai :refer [new-ai-player]]
             [om-ttt.players.human :refer [new-human-player]]
-            [om-ttt.protocols.ui :as ui]
             [om-ttt.spec-helper :refer [empty-board mock-ui]]
             [speclj.core :refer :all]))
 
