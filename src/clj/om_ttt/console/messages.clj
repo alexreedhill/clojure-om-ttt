@@ -7,4 +7,4 @@
 (def human-token-prompt "Choose your character! Any letter or number will do")
 (def ai-token-prompt "Choose your opponent's character")
 (def board-size-prompt "What size board would you like to play? (3 or 4)")
-(def first-player-prompt "Who would you like to go first? (human or ai)")
+(def first-player-prompt "Who plays first? (human or ai)")
