@@ -11,4 +11,5 @@
 (describe "unbeatable ai"
   (context "3x3"
     (it "always results in a tie game when two unbeatable ais play eachother"
-      (should (every? nil? (take 1000 (repeatedly #(winner (start-game empty-board [ai-player-x ai-player-o])))))))))
+      (should (every? nil? (take 1000 (repeatedly
+        #(winner (start-game empty-board [ai-player-x ai-player-o])))))))))
