@@ -1,5 +1,6 @@
 (ns om-ttt.board
-  (:require [clojure.math.numeric-tower :as math]))
+  (:require [clojure.math.numeric-tower :as math]
+            [om-ttt.util :refer [transpose]]))
 
 (defn generate [height]
   (vec (repeat (* height height) nil)))
@@ -12,9 +13,6 @@
 
 (defn rows [board]
   (partition (height board) board))
-
-(defn transpose [board]
-  (apply mapv vector board))
 
 (defn columns [board]
   (transpose (rows board)))
