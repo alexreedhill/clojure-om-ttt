@@ -10,7 +10,7 @@
     false
     (do (swap! play-again-counter inc) true)))
 
-(deftype MockUi [config]
+(deftype MockUI [config]
   UI
   (display-message [this message]
     message)
@@ -28,4 +28,4 @@
   (move [this board] (.indexOf board nil)))
 
 (defn new-mock-ui [config]
-  (MockUi. config))
+  (MockUI. config))
