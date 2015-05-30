@@ -2,7 +2,19 @@
   (:require [om-ttt.protocols.ui :refer [UI] :as ui]
             [om-ttt.board :as b]
             [om-ttt.console.messages :as m]
+            [om-ttt.console.validations :as v]
             [om-ttt.util :refer [transpose]]))
+
+(defn validate-prompt [prompt]
+  (let [input (read-line)]
+    (condp = prompt
+      m/human-token-prompt (v/validate-token input)
+      m/ai-token-prompt (v/validate-token input)
+      m/board-size-prompt (v/validate-board-size input)
+      m/first-player-prompt (v/validate-first-player input)
+      m/play-again-prompt (v/validate-boolean input)
+      m/same-options-prompt (v/validate-boolean input)
+      input)))
 
 (defn- row-divider [board index]
   (if (> index (- (count board) (b/height board)))
@@ -39,13 +51,13 @@
 
   (input-prompt [this prompt]
     (ui/display-message this prompt)
-    (read-line))
+    (validate-prompt prompt))
 
   (draw-board [this board]
-    (board->string board))
+    (print (board->string board)))
 
   (move [this board]
-    (ui/input-prompt this m/player-move-prompt)))
+    (v/validate-move (ui/input-prompt this m/player-move-prompt) board)))
 
 (defn new-console-ui []
   (ConsoleUI.))

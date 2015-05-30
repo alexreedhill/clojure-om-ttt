@@ -8,3 +8,4 @@
 (def ai-token-prompt "Choose your opponent's character")
 (def board-size-prompt "What size board would you like to play? (3 or 4)")
 (def first-player-prompt "Who plays first? (human or ai)")
+(def player-move-prompt "Choose your next move (1-9 or 1-16)")
