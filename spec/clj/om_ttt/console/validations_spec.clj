@@ -1,5 +1,6 @@
 (ns om-ttt.console.validations-spec
   (:require [om-ttt.console.validations :refer :all]
+            [om-ttt.board :as b]
             [om-ttt.spec-helper :refer [empty-board empty-4x4-board]]
             [speclj.core :refer :all]))
 
@@ -27,23 +28,23 @@
   (describe "validate-move"
     (context "3x3"
       (it "converts input within the board's size into an integer minus 1"
-        (should= 0 (validate-move "1" empty-board)))
+        (should= 0 (validate-move "1" [empty-board])))
 
       (it "returns invalid for integers larger than the board's size"
-        (should= :invalid (validate-move "10" empty-board)))
+        (should= :invalid (validate-move "10" [empty-board])))
+
+      (it "returns invalid for integers smaller than the board's size"
+        (should= :invalid (validate-move "0" [empty-board])))
+
+      (it "returns invalid for integers that represent spaces that are already taken"
+        (should= :invalid (validate-move "1" [(b/fill-space empty-board 0 "X")])))
 
       (it "returns invalid for all other input"
-        (should= :invalid (validate-move "wat" empty-board))))
+        (should= :invalid (validate-move "wat" [empty-board]))))
 
     (context "4x4"
-      (it "converts input within the board's size into an integer minus 1"
-        (should= 0 (validate-move "1" empty-4x4-board)))
-
       (it "returns invalid for integers larger than the board's size"
-        (should= :invalid (validate-move "17" empty-4x4-board)))
-
-      (it "returns invalid for all other input"
-        (should= :invalid (validate-move "huh" empty-4x4-board)))))
+        (should= :invalid (validate-move "17" [empty-4x4-board])))))
 
   (describe "validate-token"
     (it "accepts tokens that are one character in length"

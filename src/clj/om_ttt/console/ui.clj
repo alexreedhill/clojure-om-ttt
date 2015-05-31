@@ -5,16 +5,24 @@
             [om-ttt.console.validations :as v]
             [om-ttt.util :refer [transpose]]))
 
-(defn validate-prompt [prompt]
-  (let [input (read-line)]
-    (condp = prompt
-      m/human-token-prompt (v/validate-token input)
-      m/ai-token-prompt (v/validate-token input)
-      m/board-size-prompt (v/validate-board-size input)
-      m/first-player-prompt (v/validate-first-player input)
-      m/play-again-prompt (v/validate-boolean input)
-      m/same-options-prompt (v/validate-boolean input)
-      input)))
+(defn- validator-for [prompt]
+  (condp = prompt
+    m/human-token-prompt v/validate-token
+    m/ai-token-prompt v/validate-token
+    m/board-size-prompt v/validate-board-size
+    m/first-player-prompt v/validate-first-player
+    m/play-again-prompt v/validate-boolean
+    m/same-options-prompt v/validate-boolean
+    (fn [input & _] input)))
+
+(defn- validation-loop [validator & validator-args]
+  (let [input (read-line)
+        validation-response (validator input validator-args)]
+    (if (= :invalid validation-response)
+      (do
+        (println "That input was not valid." "\n")
+        (recur validator validator-args))
+      validation-response)))
 
 (defn- row-divider [board index]
   (if (> index (- (count board) (b/height board)))
@@ -47,17 +55,18 @@
 (deftype ConsoleUI []
   UI
   (display-message [this string]
-    (println string))
+    (println string "\n"))
 
   (input-prompt [this prompt]
     (ui/display-message this prompt)
-    (validate-prompt prompt))
+    (validation-loop (validator-for prompt)))
 
   (draw-board [this board]
-    (print (board->string board)))
+    (println (board->string board)))
 
   (move [this board]
-    (v/validate-move (ui/input-prompt this m/player-move-prompt) board)))
+    (ui/display-message this m/player-move-prompt)
+    (validation-loop v/validate-move board)))
 
 (defn new-console-ui []
   (ConsoleUI.))

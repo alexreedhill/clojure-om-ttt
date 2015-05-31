@@ -13,14 +13,14 @@
   (around [it] (with-out-str (it)))
 
   (it "displays message"
-    (should= "hi\n" (with-out-str (display-message console-ui "hi"))))
+    (should= "hi \n\n" (with-out-str (display-message console-ui "hi"))))
 
   (describe "input-prompt"
     (it "prompts a user for input"
       (let [prompt "Choose your character!"
             test-input-prompt #(input-prompt console-ui prompt)]
         (should= "X" (with-in-str "X" (test-input-prompt)))
-        (should= (str prompt "\n") (with-out-str (with-in-str "X" (test-input-prompt))))))
+        (should= (str prompt " \n\n") (with-out-str (with-in-str "X" (test-input-prompt))))))
 
       (context "human-token-prompt"
         (it "delegates validation to v/validate-token"
@@ -62,12 +62,12 @@
                "_____|_____|_____\n"
                "     |     |     \n"
                "     |     |     \n"
-               "     |     |     \n")
+               "     |     |     \n\n")
       (with-out-str (draw-board console-ui (b/fill-space empty-board 0 "X")))))
 
   (describe "move"
     (it "gets a move from a user"
-      (should= (str m/player-move-prompt "\n") (with-out-str (with-in-str "0" (move console-ui empty-board))))
+      (should= (str m/player-move-prompt " \n\n") (with-out-str (with-in-str "1" (move console-ui empty-board))))
       (should= 0 (with-in-str "1" (move console-ui empty-board))))
 
       (it "delegates validation to v/validate-move"
