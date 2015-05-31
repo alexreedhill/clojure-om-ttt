@@ -3,7 +3,7 @@
             [om-ttt.console.messages :as m]))
 
   (defn get-game-config [ui]
-    {:ai-token (ui/input-prompt ui m/ai-token-prompt)
-     :human-token (ui/input-prompt ui m/human-token-prompt)
+    {:human-token (ui/input-prompt ui m/human-token-prompt)
+     :ai-token (ui/input-prompt ui m/ai-token-prompt)
      :board-size (ui/input-prompt ui m/board-size-prompt)
      :first-player (ui/input-prompt ui m/first-player-prompt)})

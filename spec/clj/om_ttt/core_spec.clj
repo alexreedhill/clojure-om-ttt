@@ -9,4 +9,4 @@
     (should-invoke r/run {} (-main)))
 
   (it "invokes new-console-ui"
-      (should-invoke c/new-console-ui {} (with-redefs [r/run (fn [_])] (-main)))))
+    (should-invoke c/new-console-ui {} (with-redefs [r/run (fn [_])] (-main)))))

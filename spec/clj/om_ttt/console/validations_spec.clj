@@ -61,6 +61,4 @@
       (should= "ai" (validate-first-player "ai")))
 
     (it "returns invalid for all other input"
-      (should= :invalid (validate-first-player "1")))
-
-    ))
+      (should= :invalid (validate-first-player "1")))))
