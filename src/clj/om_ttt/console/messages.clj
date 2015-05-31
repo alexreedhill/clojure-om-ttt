@@ -3,6 +3,7 @@
 (def welcome-message "Let's play some Tic Tac Toe, eh?")
 (def play-again-prompt "Would you like to play again?")
 (def same-options-prompt "Would you like to use the same game options?")
+(def game-over-message "Game over!")
 (def farewell-message "See you later!")
 (def human-token-prompt "Choose your character! Any letter or number will do")
 (def ai-token-prompt "Choose your opponent's character")

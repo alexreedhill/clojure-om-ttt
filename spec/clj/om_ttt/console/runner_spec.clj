@@ -11,4 +11,4 @@
     (should-invoke menu/get-game-config {:return mock-config} (run mock-ui)))
 
   (it "starts game loop"
-    (should-invoke game-loop/start-game {:return empty-board}(run mock-ui))))
+    (should-invoke game-loop/start-game {:return empty-board} (run mock-ui))))

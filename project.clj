@@ -10,4 +10,5 @@
   :profiles {:dev {:dependencies [[speclj "3.2.0"]]}}
   :plugins [[speclj "3.2.0"]]
   :source-paths ["src/clj" "src/cljs"]
-  :test-paths ["spec/clj", "spec/cljs"])
+  :test-paths ["spec/clj", "spec/cljs"]
+  :main om-ttt.core)

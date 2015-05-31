@@ -10,11 +10,12 @@
 (declare create-board)
 
 (defn- start-game [board config players ui]
-  (game-loop/start-game board players)
-  (if (ui/input-prompt ui m/play-again-prompt)
-    (if (ui/input-prompt ui m/same-options-prompt)
-      (recur (create-board (config :board-size)) config players ui)
-      (get-options ui))))
+  (let [board (game-loop/start-game board players ui)]
+    (ui/display-message ui m/game-over-message)
+    (if (ui/input-prompt ui m/play-again-prompt)
+      (if (ui/input-prompt ui m/same-options-prompt)
+        (recur (create-board (config :board-size)) config players ui)
+        (get-options ui)))))
 
 (defn- create-players [config ui]
   (player-factory/create-players
