@@ -1,8 +1,8 @@
 (ns om-ttt.console.runner
-  (:require [om-ttt.board :as b]
+  (:require [om-ttt.game.board :as b]
             [om-ttt.console.menu :as menu]
             [om-ttt.console.messages :as m]
-            [om-ttt.game-loop :as game-loop]
+            [om-ttt.game.loop :as game-loop]
             [om-ttt.players.player-factory :as player-factory]
             [om-ttt.protocols.ui :as ui]))
 

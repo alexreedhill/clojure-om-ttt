@@ -1,8 +1,8 @@
-(ns om-ttt.game-loop-spec
-  (:require [om-ttt.game-loop :refer :all]
+(ns om-ttt.game.loop-spec
+  (:require [om-ttt.game.loop :refer :all]
             [om-ttt.players.ai :refer [new-ai-player]]
             [om-ttt.players.human :refer [new-human-player]]
-            [om-ttt.rules :as r]
+            [om-ttt.game.rules :as r]
             [om-ttt.spec-helper :refer [empty-board mock-ui]]
             [speclj.core :refer :all]))
 

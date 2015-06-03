@@ -1,5 +1,5 @@
 (ns om-ttt.players.human
-  (:require [om-ttt.board :as b]
+  (:require [om-ttt.game.board :as b]
             [om-ttt.protocols.player :refer [Player]]
             [om-ttt.protocols.ui :as ui]))
 

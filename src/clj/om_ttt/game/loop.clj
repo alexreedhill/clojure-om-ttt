@@ -1,7 +1,7 @@
-(ns om-ttt.game-loop
+(ns om-ttt.game.loop
   (:require [om-ttt.protocols.player :as player]
             [om-ttt.protocols.ui :as ui]
-            [om-ttt.rules :as r]))
+            [om-ttt.game.rules :as r]))
 
 (defn start-game [board players game-ui]
   (ui/draw-board game-ui board)

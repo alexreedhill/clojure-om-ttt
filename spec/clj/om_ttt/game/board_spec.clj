@@ -1,5 +1,5 @@
-(ns om-ttt.board-spec
-  (:require [om-ttt.board :refer :all]
+(ns om-ttt.game.board-spec
+  (:require [om-ttt.game.board :refer :all]
             [om-ttt.spec-helper :refer [empty-board empty-4x4-board]]
             [speclj.core :refer :all]))
 

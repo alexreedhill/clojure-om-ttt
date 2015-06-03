@@ -1,7 +1,7 @@
 (ns om-ttt.console.runner-spec
   (:require [om-ttt.console.menu :as menu]
             [om-ttt.console.runner :refer :all]
-            [om-ttt.game-loop :as game-loop]
+            [om-ttt.game.loop :as game-loop]
             [om-ttt.players.human :refer [new-human-player]]
             [om-ttt.spec-helper :refer [mock-ui mock-config empty-board]]
             [speclj.core :refer :all]))

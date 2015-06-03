@@ -1,5 +1,5 @@
-(ns om-ttt.rules
-  (:require [om-ttt.board :as b]
+(ns om-ttt.game.rules
+  (:require [om-ttt.game.board :as b]
             [om-ttt.util :refer [compact]]))
 
 (defn partition-won? [partition]

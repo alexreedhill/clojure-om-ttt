@@ -1,4 +1,4 @@
-(ns om-ttt.board
+(ns om-ttt.game.board
   (:require [clojure.math.numeric-tower :as math]
             [om-ttt.util :refer [transpose]]))
 
