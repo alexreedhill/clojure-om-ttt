@@ -1,6 +1,6 @@
 (ns om-ttt.console.menu
-  (:require [om-ttt.protocols.ui :as ui]
-            [om-ttt.console.messages :as m]))
+  (:require [om-ttt.console.messages :as m]
+            [om-ttt.protocols.ui :as ui]))
 
   (defn get-game-config [ui]
     {:human-token (ui/input-prompt ui m/human-token-prompt)

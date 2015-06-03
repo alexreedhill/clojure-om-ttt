@@ -1,7 +1,7 @@
 (ns om-ttt.core-spec
-  (:require [om-ttt.core :refer :all]
-            [om-ttt.console.runner :as r]
+  (:require [om-ttt.console.runner :as r]
             [om-ttt.console.ui :as c]
+            [om-ttt.core :refer :all]
             [speclj.core :refer :all]))
 
 (describe "main"

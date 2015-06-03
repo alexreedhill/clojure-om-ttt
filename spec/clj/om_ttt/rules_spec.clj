@@ -1,7 +1,7 @@
 (ns om-ttt.rules-spec
   (:require [om-ttt.rules :refer :all]
-            [speclj.core :refer :all]
-            [om-ttt.spec-helper :refer [empty-board empty-4x4-board]]))
+            [om-ttt.spec-helper :refer [empty-board empty-4x4-board]]
+            [speclj.core :refer :all]))
 
 (describe "rules"
   (describe "game-over?"

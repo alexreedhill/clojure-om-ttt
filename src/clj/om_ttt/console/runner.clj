@@ -1,9 +1,9 @@
 (ns om-ttt.console.runner
-  (:require [om-ttt.game-loop :as game-loop]
+  (:require [om-ttt.board :as b]
             [om-ttt.console.menu :as menu]
             [om-ttt.console.messages :as m]
+            [om-ttt.game-loop :as game-loop]
             [om-ttt.players.player-factory :as player-factory]
-            [om-ttt.board :as b]
             [om-ttt.protocols.ui :as ui]))
 
 (declare get-options)

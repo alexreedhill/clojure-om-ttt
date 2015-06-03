@@ -1,7 +1,7 @@
 (ns om-ttt.players.ai
   (:require [om-ttt.board :as b]
-            [om-ttt.rules :as r]
             [om-ttt.protocols.player :refer [Player]]
+            [om-ttt.rules :as r]
             [om-ttt.util :refer [compact]]))
 
 (declare score-moves)

@@ -1,9 +1,9 @@
 (ns om-ttt.console.ui-spec
-  (:require [om-ttt.console.ui :refer :all]
-            [om-ttt.protocols.ui :refer :all]
-            [om-ttt.board :as b]
+  (:require [om-ttt.board :as b]
             [om-ttt.console.messages :as m]
+            [om-ttt.console.ui :refer :all]
             [om-ttt.console.validations :as v]
+            [om-ttt.protocols.ui :refer :all]
             [om-ttt.spec-helper :refer [empty-board]]
             [speclj.core :refer :all]))
 

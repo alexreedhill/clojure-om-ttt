@@ -1,7 +1,7 @@
 (ns om-ttt.unbeatable-ai-spec
-  (:require [om-ttt.players.ai :refer [new-ai-player]]
+  (:require [om-ttt.game-loop :refer [start-game]]
+            [om-ttt.players.ai :refer [new-ai-player]]
             [om-ttt.rules :refer [winner]]
-            [om-ttt.game-loop :refer [start-game]]
             [om-ttt.spec-helper :refer [empty-board mock-ui]]
             [speclj.core :refer :all]))
 

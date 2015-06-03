@@ -1,7 +1,7 @@
 (ns om-ttt.players.human
-  (:require [om-ttt.protocols.player :refer [Player]]
-            [om-ttt.protocols.ui :as ui]
-            [om-ttt.board :as b]))
+  (:require [om-ttt.board :as b]
+            [om-ttt.protocols.player :refer [Player]]
+            [om-ttt.protocols.ui :as ui]))
 
 (deftype HumanPlayer [token ui]
   Player

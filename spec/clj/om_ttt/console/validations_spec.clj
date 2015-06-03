@@ -1,6 +1,6 @@
 (ns om-ttt.console.validations-spec
-  (:require [om-ttt.console.validations :refer :all]
-            [om-ttt.board :as b]
+  (:require [om-ttt.board :as b]
+            [om-ttt.console.validations :refer :all]
             [om-ttt.spec-helper :refer [empty-board empty-4x4-board]]
             [speclj.core :refer :all]))
 
