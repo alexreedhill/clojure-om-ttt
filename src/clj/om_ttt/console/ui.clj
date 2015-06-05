@@ -46,10 +46,11 @@
     board))
 
 (defn- board->string [board]
-  (->> (board->lines board)
-       (b/rows)
+  (->> board
+       board->lines
+       b/rows
        (map transpose)
-       (flatten)
+       flatten
        (apply str)))
 
 (deftype ConsoleUI []

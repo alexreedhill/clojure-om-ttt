@@ -23,7 +23,7 @@
 (defn- potential-moves [board token]
   (->> board
        (map-indexed (fn [i space] (if (nil? space) (b/fill-space board i token))))
-       (compact)))
+       compact))
 
 (defn- score-moves [board tokens depth]
   (->> (potential-moves board (first tokens))
