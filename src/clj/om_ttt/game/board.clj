@@ -17,10 +17,10 @@
 (defn columns [board]
   (transpose (rows board)))
 
-(defn diagonal [board]
+(defn- diagonal [board]
   (map-indexed (fn [i row] (get (vec row) i)) (rows board)))
 
-(defn reverse-rows [board]
+(defn- reverse-rows [board]
   (->> board (rows) (map reverse) (flatten) (vec)))
 
 (defn diagonals [board]
