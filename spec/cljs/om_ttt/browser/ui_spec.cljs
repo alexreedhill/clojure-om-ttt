@@ -1,10 +1,11 @@
-(ns om-ttt.cljs.core-spec
+(ns om-ttt.cljs.browser.ui-spec
   (:require-macros [cemerick.cljs.test :refer (deftest is testing use-fixtures)]
                    [dommy.core :refer (sel sel1)])
-  (:require [om-ttt.core :as core :refer [app-state draw-board]]
-            [cemerick.cljs.test]
+  (:require [cemerick.cljs.test]
             [dommy.core :as dommy]
-            [om.core :as om]))
+            [om.core :as om]
+            [om-ttt.browser.ui :refer [app-state draw-board new-browser-ui]]
+            [om-ttt.protocols.ui :as ui]))
 
 (defn new-node [id]
   (-> (dommy/create-element "div")
@@ -29,3 +30,9 @@
   (swap! app-state assoc :board ["X" "O"])
   (is (= (dommy/text (first (sel "li")))) "X")
   (is (= (dommy/text (second (sel "li")))) "O"))
+
+(deftest test-implements-ui-protocol-updates-app-state
+  (let [board      (repeat 9 "X")
+        browser-ui (new-browser-ui)]
+    (ui/draw-board browser-ui board)
+    (is (= (:board @app-state) board))))
