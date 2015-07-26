@@ -1,6 +1,5 @@
 (ns om-ttt.game.board
-  (:require [clojure.math.numeric-tower :as math]
-            [om-ttt.util :refer [transpose]]))
+  (:require [om-ttt.util :refer [transpose]]))
 
 (defn generate [height]
   (vec (repeat (* height height) nil)))
@@ -9,7 +8,9 @@
   (assoc board index value))
 
 (defn height [board]
-  (math/sqrt (count board)))
+  (let [size (count board)]
+    #?(:clj (if (> size 0) (int (Math/sqrt size)) 0)
+       :cljs (.sqrt js/Math size))))
 
 (defn rows [board]
   (partition (height board) board))

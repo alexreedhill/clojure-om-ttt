@@ -1,10 +1,11 @@
 (ns om-ttt.core
   (:require [om.core :as om :include-macros true]
-            [om.dom :as dom :include-macros true]))
+            [om.dom :as dom :include-macros true]
+            [om-ttt.game.board :as board]))
 
 (enable-console-print!)
 
-(defonce app-state (atom {:board [nil nil nil nil nil nil nil nil nil]}))
+(defonce app-state (atom {:board (board/generate 3)}))
 
 (defn draw-board []
   (om/root
