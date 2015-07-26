@@ -16,23 +16,30 @@
 
 (defn app-fixture [f]
   (->> (new-node "app") (append-node))
+  (new-browser-ui)
   (f))
 
 (use-fixtures :once app-fixture)
 
 (deftest test-draw-empty-board
   (swap! app-state assoc :board (repeat 9 nil))
-  (draw-board)
+
   (is (sel1 :#board))
   (is (= (count (sel :.cell)) (count (:board @app-state)))))
 
 (deftest test-draw-board-with-cell-values
   (swap! app-state assoc :board ["X" "O"])
+
   (is (= (dommy/text (first (sel "li")))) "X")
   (is (= (dommy/text (second (sel "li")))) "O"))
+
+(deftest test-draw-board-with-cell-ids
+  (is (sel1 "li#cell-0"))
+  (is (sel1 "li#cell-8")))
 
 (deftest test-implements-ui-protocol-updates-app-state
   (let [board      (repeat 9 "X")
         browser-ui (new-browser-ui)]
     (ui/draw-board browser-ui board)
+
     (is (= (:board @app-state) board))))

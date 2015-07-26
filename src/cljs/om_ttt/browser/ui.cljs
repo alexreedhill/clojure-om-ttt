@@ -8,12 +8,16 @@
 
 (defonce app-state (atom {:board (board/generate 3)}))
 
+(defn generate-cells [board]
+  (map-indexed
+    (fn [i value] (dom/li #js {:className "cell" :id (str "cell-" i)} value)) board))
+
 (defn draw-board []
   (om/root
     (fn [data owner]
       (om/component
         (apply dom/ul #js {:id "board"}
-          (map (fn [cell] (dom/li #js {:className "cell"} cell)) (:board data)))))
+          (generate-cells (:board data)))))
     app-state
     {:target (. js/document (getElementById "app"))}))
 
