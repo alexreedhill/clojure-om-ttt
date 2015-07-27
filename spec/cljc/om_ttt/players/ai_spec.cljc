@@ -1,7 +1,8 @@
 (ns om-ttt.players.ai-spec
   (:require [om-ttt.players.ai :refer [new-ai-player]]
             [om-ttt.protocols.player :refer [make-move]]
-            [speclj.core :refer :all]))
+   #?(:clj  [speclj.core :refer [describe context it should= should-contain]]
+      :cljs [speclj.core :refer-macros [describe context it should= should-contain]])))
 
 (def ai-player-x (new-ai-player "X" "O"))
 (def ai-player-o (new-ai-player "O" "X"))

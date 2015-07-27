@@ -1,4 +1,4 @@
-(ns om-ttt.console.messages)
+(ns om-ttt.messages)
 
 (def welcome-message "Let's play some Tic Tac Toe, eh?")
 (def play-again-prompt "Would you like to play again?")

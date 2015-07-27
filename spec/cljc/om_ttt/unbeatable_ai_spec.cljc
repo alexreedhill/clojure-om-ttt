@@ -3,7 +3,8 @@
             [om-ttt.players.ai :refer [new-ai-player]]
             [om-ttt.game.rules :refer [winner]]
             [om-ttt.spec-helper :refer [empty-board mock-ui]]
-            [speclj.core :refer :all]))
+   #?(:clj  [speclj.core :refer [describe context it should]]
+      :cljs [speclj.core :refer-macros [describe context it should]])))
 
 (def ai-player-x (new-ai-player "X" "O"))
 (def ai-player-o (new-ai-player "O" "X"))

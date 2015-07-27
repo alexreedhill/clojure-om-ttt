@@ -1,5 +1,5 @@
 (ns om-ttt.console.menu
-  (:require [om-ttt.console.messages :as m]
+  (:require [om-ttt.messages :as m]
             [om-ttt.protocols.ui :as ui]))
 
   (defn get-game-config [ui]

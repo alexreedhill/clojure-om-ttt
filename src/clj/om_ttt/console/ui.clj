@@ -1,6 +1,6 @@
 (ns om-ttt.console.ui
   (:require [om-ttt.game.board :as b]
-            [om-ttt.console.messages :as m]
+            [om-ttt.messages :as m]
             [om-ttt.console.validations :as v]
             [om-ttt.protocols.ui :refer [UI] :as ui]
             [om-ttt.util :refer [transpose]]))

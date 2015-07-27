@@ -8,7 +8,7 @@
 
 (defonce app-state (atom {:board (board/generate 3)}))
 
-(defn generate-cells [board]
+(defn- generate-cells [board]
   (map-indexed
     (fn [i value] (dom/li #js {:className "cell" :id (str "cell-" i)} value)) board))
 

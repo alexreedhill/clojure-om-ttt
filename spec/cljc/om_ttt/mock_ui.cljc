@@ -1,5 +1,5 @@
 (ns om-ttt.mock-ui
-  (:require [om-ttt.console.messages :as m]
+  (:require [om-ttt.messages :as m]
             [om-ttt.protocols.ui :refer [UI]]))
 
 (def play-again-counter (atom 0))

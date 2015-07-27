@@ -1,8 +1,8 @@
 (ns om-ttt.players.player-factory-spec
   (:require [om-ttt.players.player-factory :refer [create-players]]
             [om-ttt.spec-helper :refer [mock-ui]]
-            [speclj.core :refer :all]))
-
+   #?(:clj  [speclj.core :refer [describe it should=]]
+      :cljs [speclj.core :refer-macros [describe it should=]])))
 
 (describe "player factory"
   (it "returns an ai player and a human player in the specified order"
