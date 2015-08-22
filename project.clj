@@ -7,7 +7,8 @@
                  [org.clojure/clojurescript "0.0-3308"]
                  [com.cemerick/clojurescript.test "0.3.3"]
                  [org.omcljs/om "0.9.0"]
-                 [prismatic/dommy "1.1.0"]]
+                 [prismatic/dommy "1.1.0"]
+                 [org.clojure/core.async "0.1.346.0-17112a-alpha"]]
   :profiles {:dev {:dependencies [[speclj "3.3.1"]]}}
 
   :plugins [[speclj "3.3.1"]
@@ -20,7 +21,6 @@
     :builds [{:id "dev"
               :source-paths ["src/cljs" "src/cljc"]
               :compiler {:output-to "resources/public/app.js"
-                         :output-dir "out"
                          :optimizations :whitespace
                          :pretty-print true}}
 
