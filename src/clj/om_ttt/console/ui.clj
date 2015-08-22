@@ -65,9 +65,8 @@
   (draw-board [this board]
     (println (board->string board)))
 
-  (move [this board]
+  (move [this board token]
     (ui/display-message this m/player-move-prompt)
-    (validation-loop v/validate-move board)))
+    (b/fill-space board (validation-loop v/validate-move board) token)))
 
-(defn new-console-ui []
-  (ConsoleUI.))
+(defn new-console-ui [] (ConsoleUI.))

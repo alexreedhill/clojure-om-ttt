@@ -1,5 +1,6 @@
 (ns om-ttt.mock-ui
-  (:require [om-ttt.messages :as m]
+  (:require [om-ttt.game.board :as b]
+            [om-ttt.messages :as m]
             [om-ttt.protocols.ui :refer [UI]]))
 
 (def play-again-counter (atom 0))
@@ -27,7 +28,7 @@
   (draw-board [this board]
     board)
 
-  (move [this board] (.indexOf board nil)))
+  (move [this board token]
+    (b/fill-space board (.indexOf board nil) token)))
 
-(defn new-mock-ui [config]
-  (MockUI. config))
+(defn new-mock-ui [config] (MockUI. config))
